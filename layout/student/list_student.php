@@ -5,8 +5,12 @@ require_once '../../layout/main/header.php';
 
 <style>
     .active-page {
-        background-color: #ccc;
+        background-color: #ddd;
         color: #007bff;
+    }
+
+    table tbody tr:hover {
+        background-color: #ddd;
     }
 </style>
 
@@ -64,53 +68,28 @@ require_once '../../layout/main/header.php';
                 <tbody>
                     <?php
                     foreach ($list_student as $key => $row) {
-                        if ($key % 2 == 0) {
+
                     ?>
-                            <tr>
-                                <td style="vertical-align: middle;"><?= $row['student_code'] ?></td>
-                                <td style="vertical-align: middle;">
-                                    <img src="../../libraries/images/<?= $row['student_image'] ?>" alt="<?= $row['student_image'] ?>" width="50" height="50" />
-                                </td>
-                                <td style="vertical-align: middle;"><?= $row['student_name'] ?></td>
-                                <td style="vertical-align: middle;"><?= $row['student_class'] ?></td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <a href="./edit_student.php?this_id=<?= $row['student_id'] ?>" class="text-success">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                </td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <a href="../../controller/student/delete_student.php?this_id=<?= $row['student_id'] ?>" class="text-danger">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php
-                        } else {
-                        ?>
-                            <tr style="background-color: #ccc;">
-                                <td style="vertical-align: middle;"><?= $row['student_code'] ?></td>
-                                <td style="vertical-align: middle;">
-                                    <img src="../../libraries/images/<?= $row['student_image'] ?>" alt="<?= $row['student_image'] ?>" width="50" height="50" />
-                                </td>
-                                <td style="vertical-align: middle;"><?= $row['student_name'] ?></td>
-                                <td style="vertical-align: middle;"><?= $row['student_class'] ?></td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <a href="./edit_student.php?this_id=<?= $row['student_id'] ?>" class="text-success">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                </td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <a href="../../controller/student/delete_student.php?this_id=<?= $row['student_id'] ?>" class="text-danger">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php
-                        }
-
-                        ?>
-
+                        <tr>
+                            <td style="vertical-align: middle;"><?= $row['student_code'] ?></td>
+                            <td style="vertical-align: middle;">
+                                <img src="../../libraries/images/<?= $row['student_image'] ?>" alt="<?= $row['student_image'] ?>" width="50" height="50" />
+                            </td>
+                            <td style="vertical-align: middle;"><?= $row['student_name'] ?></td>
+                            <td style="vertical-align: middle;"><?= $row['student_class'] ?></td>
+                            <td style="text-align: center; vertical-align: middle;">
+                                <a href="./edit_student.php?this_id=<?= $row['student_id'] ?>" class="text-success">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                            <td style="text-align: center; vertical-align: middle;">
+                                <a href="../../controller/student/delete_student.php?this_id=<?= $row['student_id'] ?>" class="text-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
                     <?php
+                    
                     }
                     ?>
                 </tbody>
