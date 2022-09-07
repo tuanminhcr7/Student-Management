@@ -1,3 +1,20 @@
+<?php
+
+include "connect.php";
+session_start();
+
+if (!isset($_SESSION['mySession'])) {
+	header('location: ./layout/system/login.php');
+}
+
+$user_logined = $_SESSION['mySession'];
+
+$sql_count_user_registration = "SELECT COUNT(user_id) FROM user";
+
+$result = mysqli_query($conn, $sql_count_user_registration);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,10 +61,9 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="./controller/system/logout.php" class="nav-link">
+                        <button type="submit" class="btn" name="btn-logout">Logout</button>
+                    </a>
                 </li>
             </ul>
 
@@ -190,7 +206,7 @@
                         <img src="./layout/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block"><?=$user_logined['user_fullname']?></a>
                     </div>
                 </div>
 

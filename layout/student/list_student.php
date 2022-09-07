@@ -1,6 +1,7 @@
 <?php
 require_once '../../controller/student/list_student.php';
 require_once '../../layout/main/header.php';
+
 ?>
 
 <style>
@@ -58,6 +59,7 @@ require_once '../../layout/main/header.php';
             <table class="table table-bordered">
                 <thead class="thead-dark">
                     <tr>
+                        <th style="text-align: center;">#</th>
                         <th style="text-align: center;">Student code</th>
                         <th style="text-align: center;">Student image</th>
                         <th style="text-align: center;">Student name</th>
@@ -71,6 +73,7 @@ require_once '../../layout/main/header.php';
 
                     ?>
                         <tr>
+                            <td style="vertical-align: middle;"><?= $start++ ?></td>
                             <td style="vertical-align: middle;"><?= $row['student_code'] ?></td>
                             <td style="vertical-align: middle;">
                                 <img src="../../libraries/images/<?= $row['student_image'] ?>" alt="<?= $row['student_image'] ?>" width="50" height="50" />
@@ -89,7 +92,7 @@ require_once '../../layout/main/header.php';
                             </td>
                         </tr>
                     <?php
-                    
+
                     }
                     ?>
                 </tbody>
